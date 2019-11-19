@@ -62,6 +62,8 @@ class FirestoreListView extends StatelessWidget {
       itemBuilder: (BuildContext context, int index) {
         String title = documents[index].data['title'].toString();
         int score = documents[index].data['score'];
+        bool editing = documents[index].data['editing'] ?? true;
+        
         return ListTile(
             title: Container(
               decoration: BoxDecoration(
@@ -72,7 +74,7 @@ class FirestoreListView extends StatelessWidget {
               child: Row(
                 children: <Widget>[
                   Expanded(
-                    child: !documents[index].data['editing']
+                    child: !editing
                         ? Text(title)
                         : TextFormField(
                             initialValue: title,
