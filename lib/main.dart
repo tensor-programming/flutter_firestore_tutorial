@@ -62,7 +62,7 @@ class FirestoreListView extends StatelessWidget {
       itemBuilder: (BuildContext context, int index) {
         String title = documents[index].data['title'].toString();
         int score = documents[index].data['score'];
-        bool editing = documents[index].data['editing'] ?? true;
+        bool editing = documents[index].data['editing'] ?? false;
         
         return ListTile(
             title: Container(
